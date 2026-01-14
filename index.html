@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumen Coffee Lab | SF</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --text-light: #f4f1ea;
+            --accent-gold: #d4a373;
+        }
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+        }
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .text-outline {
+            -webkit-text-stroke: 1px rgba(244, 241, 234, 0.3);
+            color: transparent;
+        }
+        .hover-image-scale:hover img {
+            transform: scale(1.05);
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-orange-900 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 mix-blend-difference px-6 py-6 flex justify-between items-center">
+        <div class="text-2xl font-bold tracking-tighter uppercase">Lumen.</div>
+        <div class="hidden md:flex gap-8 text-sm uppercase tracking-widest font-bold">
+            <a href="#process" class="hover:text-gray-400 transition-colors">Process</a>
+            <a href="#menu" class="hover:text-gray-400 transition-colors">Menu</a>
+            <a href="#visit" class="hover:text-gray-400 transition-colors">Visit</a>
+        </div>
+        <button class="md:hidden text-white">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <header class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
+                 alt="Dark moody coffee aesthetics" 
+                 class="w-full h-full object-cover opacity-60 scale-110 motion-safe:animate-[pulse_10s_ease-in-out_infinite_alternate]">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/20 to-[#0a0a0a]"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+            <p class="text-xs md:text-sm uppercase tracking-[0.3em] text-gray-400 mb-6 reveal-on-scroll">San Francisco • Mission District</p>
+            <h1 class="text-6xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tighter mb-8 reveal-on-scroll delay-100">
+                <span class="block">ALCHEMY</span>
+                <span class="block italic font-light text-gray-300">IN EVERY</span>
+                <span class="block">CUP</span>
+            </h1>
+            <div class="flex flex-col md:flex-row gap-6 justify-center items-center mt-12 reveal-on-scroll delay-200">
+                <a href="#visit" class="group relative px-8 py-4 bg-white text-black font-bold uppercase tracking-wider text-sm overflow-hidden">
+                    <span class="relative z-10 group-hover:text-white transition-colors duration-300">Visit The Lab</span>
+                    <div class="absolute inset-0 bg-orange-700 transform scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-300 ease-out"></div>
+                </a>
+                <a href="#menu" class="text-sm uppercase tracking-widest border-b border-transparent hover:border-white transition-all pb-1">View Seasonal Menu</a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 animate-bounce">
+            <span class="text-[10px] uppercase tracking-widest">Scroll</span>
+            <div class="w-[1px] h-12 bg-white"></div>
+        </div>
+    </header>
+
+    <!-- 2. Value Proposition -->
+    <section class="py-24 md:py-32 px-6 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="reveal-on-scroll">
+                    <h2 class="text-4xl md:text-6xl font-bold mb-8 leading-tight">
+                        Not just coffee.<br>
+                        <span class="italic font-light text-gray-400">A awakening.</span>
+                    </h2>
+                    <p class="text-lg text-gray-400 leading-relaxed max-w-md mb-8">
+                        We reject the ordinary. Located in the heart of the Mission, Lumen is a sanctuary for those who understand that coffee is more than caffeine—it is a ritual of precision, patience, and flavor.
+                    </p>
+                    <ul class="space-y-4 font-mono text-sm tracking-wide text-gray-300">
+                        <li class="flex items-center gap-4">
+                            <span class="w-2 h-2 bg-orange-600 rounded-full"></span> Single Origin Sourcing
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <span class="w-2 h-2 bg-orange-600 rounded-full"></span> Precision Roast Profiles
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <span class="w-2 h-2 bg-orange-600 rounded-full"></span> Award-Winning Baristas
+                        </li>
+                    </ul>
+                </div>
+                <div class="relative reveal-on-scroll delay-200">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1442512595367-42736f3e5087?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Minimalist coffee shop detail" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-orange-900 p-6 text-white max-w-xs hidden md:block">
+                        <p class="font-serif italic text-xl">"The attention to detail is borderline obsessive. In the best way possible."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. How It Works (The Process) -->
+    <section id="process" class="py-24 bg-[#111] border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20 reveal-on-scroll">
+                <p class="text-xs uppercase tracking-[0.3em] text-orange-500 mb-4">The Methodology</p>
+                <h2 class="text-5xl md:text-7xl text-outline font-black uppercase tracking-tight">Seed to Cup</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="glass-panel p-8 group hover:bg-white/5 transition-all duration-500 reveal-on-scroll">
+                    <div class="text-4xl text-orange-500 mb-6 font-serif italic">01.</div>
+                    <h3 class="text-2xl font-bold mb-4 uppercase">Curate</h3>
+                    <p class="text-gray-400 leading-relaxed">We work directly with farmers in Ethiopia, Colombia, and Kenya. No middlemen. Just ethical trade and the highest quality beans.</p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="glass-panel p-8 group hover:bg-white/5 transition-all duration-500 reveal-on-scroll delay-100">
+                    <div class="text-4xl text-orange-500 mb-6 font-serif italic">02.</div>
+                    <h3 class="text-2xl font-bold mb-4 uppercase">Roast</h3>
+                    <p class="text-gray-400 leading-relaxed">Roasted in small batches in-house. We highlight the inherent floral, fruity, or nutty notes of each specific varietal.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="glass-panel p-8 group hover:bg-white/5 transition-all duration-500 reveal-on-scroll delay-200">
+                    <div class="text-4xl text-orange-500 mb-6 font-serif italic">03.</div>
+                    <h3 class="text-2xl font-bold mb-4 uppercase">Extract</h3>
+                    <p class="text-gray-400 leading-relaxed">Whether it's a V60 pour-over or a double shot of espresso, our variables are weighed and timed to the second.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Key Features (Menu Highlights) -->
+    <section id="menu" class="py-32 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal-on-scroll">
+                <h2 class="text-5xl md:text-6xl font-bold">Signature<br>Serves</h2>
+                <a href="#" class="hidden md:block text-sm uppercase tracking-widest border-b border-gray-600 pb-1 hover:text-orange-500 transition-colors">Full Menu PDF</a>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Item 1 -->
+                <div class="group relative border-t border-white/10 py-8 flex flex-col md:flex-row md:items-center justify-between cursor-pointer reveal-on-scroll">
+                    <div class="md:w-1/2">
+                        <h3 class="text-3xl font-serif italic text-gray-300 group-hover:text-white transition-colors group-hover:translate-x-4 duration-300">The Obsidian Cold Brew</h3>
+                    </div>
+                    <div class="md:w-1/3 mt-2 md:mt-0">
+                        <p class="text-gray-500 text-sm">24-hour immersion • Nitrogen infused • Velvety finish</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 font-mono text-orange-500">$6.50</div>
+                    <!-- Hover Image Reveal -->
+                    <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" class="absolute right-0 top-1/2 -translate-y-1/2 w-48 h-32 object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none hidden lg:block rounded-sm grayscale" alt="Cold brew">
+                </div>
+
+                <!-- Item 2 -->
+                <div class="group relative border-t border-white/10 py-8 flex flex-col md:flex-row md:items-center justify-between cursor-pointer reveal-on-scroll">
+                    <div class="md:w-1/2">
+                        <h3 class="text-3xl font-serif italic text-gray-300 group-hover:text-white transition-colors group-hover:translate-x-4 duration-300">Cortado Gibraltar</h3>
+                    </div>
+                    <div class="md:w-1/3 mt-2 md:mt-0">
+                        <p class="text-gray-500 text-sm">1:1 Espresso to milk ratio • Glass served • Smooth texture</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 font-mono text-orange-500">$5.00</div>
+                     <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" class="absolute right-0 top-1/2 -translate-y-1/2 w-48 h-32 object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none hidden lg:block rounded-sm grayscale" alt="Cortado">
+                </div>
+
+                <!-- Item 3 -->
+                <div class="group relative border-t border-b border-white/10 py-8 flex flex-col md:flex-row md:items-center justify-between cursor-pointer reveal-on-scroll">
+                    <div class="md:w-1/2">
+                        <h3 class="text-3xl font-serif italic text-gray-300 group-hover:text-white transition-colors group-hover:translate-x-4 duration-300">Single Origin Pour Over</h3>
+                    </div>
+                    <div class="md:w-1/3 mt-2 md:mt-0">
+                        <p class="text-gray-500 text-sm">Rotating Selection (Ethiopia/Peru) • Hand poured • Complex</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 font-mono text-orange-500">MP</div>
+                     <img src="https://images.unsplash.com/photo-1544602868-9696b96b27e4?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" class="absolute right-0 top-1/2 -translate-y-1/2 w-48 h-32 object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none hidden lg:block rounded-sm grayscale" alt="Pour over">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Proof -->
+    <section class="py-24 bg-white text-black text-center px-6">
+        <div class="max-w-4xl mx-auto reveal-on-scroll">
+            <svg class="w-12 h-12 mx-auto mb-8 text-orange-600" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21L14.017 18C14.017 16.8954 13.1216 16 12.017 16H7.19921V21H14.017ZM16.017 21H19.8499C21.0924 21 22.0999 19.9925 22.0999 18.75V10.5H16.017V21ZM14.017 8.5H6.38709C5.33479 8.5 4.43634 9.22018 4.22851 10.2592L2.22851 20.2592C2.07137 21.0449 2.67232 21.75 3.47353 21.75H5.19921V16H12.017C13.1216 16 14.017 16.8954 14.017 18V21.75H15.017V9.5C15.017 8.94772 14.5693 8.5 14.017 8.5ZM6.59921 2.25H6.60921C6.96105 2.25 7.27431 2.44391 7.43936 2.7533L8.63936 5.0033C8.82583 5.35293 8.68065 5.78696 8.31295 5.95476L8.13963 6.03387C7.79155 6.19273 7.37731 6.03713 7.22152 5.68661L6.59921 4.28642V6.5H5.59921V2.25H6.59921ZM10.5992 2.25H10.6092C10.961 2.25 11.2743 2.44391 11.4394 2.7533L12.6394 5.0033C12.8258 5.35293 12.6807 5.78696 12.313 5.95476L12.1396 6.03387C11.7916 6.19273 11.3773 6.03713 11.2215 5.68661L10.5992 4.28642V6.5H9.59921V2.25H10.5992ZM14.5992 2.25H14.6092C14.961 2.25 15.2743 2.44391 15.4394 2.7533L16.6394 5.0033C16.8258 5.35293 16.6807 5.78696 16.313 5.95476L16.1396 6.03387C15.7916 6.19273 15.3773 6.03713 15.2215 5.68661L14.5992 4.28642V6.5H13.5992V2.25H14.5992Z"></path></svg>
+            <blockquote class="text-3xl md:text-5xl font-serif italic leading-tight mb-8">
+                &ldquo;Lumen isn't just a coffee shop. It's a masterclass in minimalism and flavor. The best pour-over in the Bay Area, hands down.&rdquo;
+            </blockquote>
+            <cite class="text-sm font-bold uppercase tracking-widest text-gray-500">— Eater San Francisco</cite>
+        </div>
+    </section>
+
+    <!-- 6. Primary CTA / Location -->
+    <section id="visit" class="relative bg-[#050505] text-white py-24 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <!-- Info -->
+            <div class="reveal-on-scroll">
+                <h2 class="text-5xl font-bold mb-10">Find Your<br>Ritual.</h2>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="text-orange-500 text-sm uppercase tracking-widest mb-2">Location</h4>
+                        <p class="text-2xl font-serif">842 Valencia St.<br>San Francisco, CA 94110</p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-orange-500 text-sm uppercase tracking-widest mb-2">Hours</h4>
+                        <table class="text-lg text-gray-300 w-full max-w-xs">
+                            <tr>
+                                <td class="py-1">Mon - Fri</td>
+                                <td class="text-right py-1">7am — 4pm</td>
+                            </tr>
+                            <tr>
+                                <td class="py-1">Sat - Sun</td>
+                                <td class="text-right py-1">8am — 5pm</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="pt-8">
+                        <a href="#" class="inline-block px-10 py-5 bg-white text-black font-bold uppercase tracking-widest hover:bg-orange-600 hover:text-white transition-all duration-300">
+                            Get Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Image / Visual -->
+            <div class="relative h-[400px] lg:h-auto overflow-hidden reveal-on-scroll delay-200 group">
+                 <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Interior Cafe Mood" class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000">
+                 <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div class="bg-white/10 backdrop-blur-md p-6 border border-white/20">
+                        <p class="text-center uppercase tracking-widest text-xs">View on Map</p>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-white/5 text-center md:text-left">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-gray-600 text-sm">
+            <div class="mb-4 md:mb-0">
+                &copy; 2024 Lumen Coffee Lab. All rights reserved.
+            </div>
+            <div class="flex gap-6 uppercase tracking-wider">
+                <a href="#" class="hover:text-white transition-colors">Instagram</a>
+                <a href="#" class="hover:text-white transition-colors">Twitter</a>
+                <a href="#" class="hover:text-white transition-colors">Spotify</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for Scroll Reveals
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach((element) => {
+            observer.observe(element);
+        });
+
+        // Smooth Scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+<script>
+  let inspectorMode = false;
+  let hoveredElement = null;
+  let selectedElement = null;
+  
+  window.addEventListener('message', (event) => {
+    if (event.data?.type === 'SET_INSPECTOR_MODE') {
+      inspectorMode = event.data.enabled;
+      document.body.style.cursor = inspectorMode ? 'crosshair' : 'default';
+    }
+    
+    if (event.data?.type === 'LOCAL_UPDATE' && selectedElement) {
+      const update = event.data.update;
+      
+      if (update.text !== undefined) {
+        selectedElement.innerText = update.text;
+      }
+      
+      if (update.styles) {
+        Object.entries(update.styles).forEach(([prop, value]) => {
+          selectedElement.style[prop] = value;
+        });
+      }
+    }
+  });
+  
+  document.addEventListener('mouseover', (e) => {
+    if (!inspectorMode) return;
+    if (hoveredElement && hoveredElement !== selectedElement) {
+      hoveredElement.style.outline = '';
+    }
+    hoveredElement = e.target;
+    if (hoveredElement !== selectedElement) {
+      hoveredElement.style.outline = '2px solid #06b6d4';
+    }
+  });
+  
+  document.addEventListener('mouseout', (e) => {
+    if (!inspectorMode || !hoveredElement) return;
+    if (hoveredElement !== selectedElement) {
+      hoveredElement.style.outline = '';
+    }
+  });
+  
+  document.addEventListener('click', (e) => {
+    if (!inspectorMode) return;
+    e.preventDefault();
+    e.stopPropagation();
+    
+    if (selectedElement) {
+      selectedElement.style.outline = '';
+    }
+    
+    const el = e.target;
+    selectedElement = el;
+    el.style.outline = '3px solid #06b6d4';
+    
+    const rect = el.getBoundingClientRect();
+    const styles = window.getComputedStyle(el);
+    
+    window.parent.postMessage({
+      type: 'ELEMENT_SELECTED',
+      element: {
+        tagName: el.tagName.toLowerCase(),
+        text: el.innerText?.substring(0, 500) || '',
+        className: el.className || '',
+        styles: {
+          color: styles.color,
+          backgroundColor: styles.backgroundColor,
+          fontSize: styles.fontSize,
+          fontWeight: styles.fontWeight,
+          padding: styles.padding,
+          margin: styles.margin,
+        },
+        rect: {
+          top: rect.top,
+          left: rect.left,
+          width: rect.width,
+          height: rect.height,
+        },
+        selector: el.id ? '#' + el.id : (el.className ? '.' + el.className.split(' ')[0] : el.tagName.toLowerCase())
+      }
+    }, '*');
+  }, true);
+</script>
+</body>
+</html>
